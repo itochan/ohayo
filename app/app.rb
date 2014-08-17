@@ -40,9 +40,15 @@ module Ohayo
     get '/call/handle-record' do
       content_type 'text/xml'
 
+      recording_url = params['RecordingUrl']
+
+      record = Records.new
+      record.url = recording_url
+      record.save
+
       Twilio::TwiML::Response.new do |r|
         r.Say "録音が終わりました。再生します。"
-        r.Play params['RecordingUrl']
+        r.Play recording_url
         r.Say "ありがとうございました"
       end.text
     end
