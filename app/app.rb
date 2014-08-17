@@ -14,8 +14,8 @@ module Ohayo
       content_type 'text/xml'
 
       Twilio::TwiML::Response.new do |r|
-        r.Say "おはようを録音しましょう", language: "ja-jp", voice: "woman"
         r.Gather numDigits: '1', action: '/call/handle-gather', method: 'get' do |g|
+          g.Say "おはようございます", language: "ja-jp", voice: "woman"
           g.Say "録音するには1を、再生する場合には2を押してください。", language: "ja-jp", voice: "woman"
         end
       end.text
