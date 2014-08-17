@@ -1,4 +1,4 @@
-module OhayoServer
+module Ohayo
   class App < Padrino::Application
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
     register Padrino::Mailer

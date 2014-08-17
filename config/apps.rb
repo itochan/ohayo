@@ -33,4 +33,4 @@ Padrino.configure_apps do
 end
 
 # Mounts the core application for this project
-Padrino.mount('OhayoServer::App', :app_file => Padrino.root('app/app.rb')).to('/')
+Padrino.mount('Ohayo::App', :app_file => Padrino.root('app/app.rb')).to('/')
