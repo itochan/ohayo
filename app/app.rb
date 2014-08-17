@@ -98,7 +98,7 @@ module Ohayo
 
       Twilio::TwiML::Response.new do |r|
         r.Say "#{number}番の音声を再生します。", language: "ja-jp", voice: "woman"
-        r.play Records.find_by(number).url
+        r.play Records.find(number).url
         r.Redirect '../menu', method: 'get'
       end.text
     end
