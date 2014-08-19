@@ -73,7 +73,7 @@ module Ohayo
       when '1'
         response = Twilio::TwiML::Response.new do |r|
           r.Say "最新の音声を再生します。", language: "ja-jp", voice: "woman"
-          r.play Records.last.url
+          r.Play Records.last.url
           r.Redirect "menu", method: 'get'
         end
       when '2'
@@ -98,7 +98,7 @@ module Ohayo
 
       Twilio::TwiML::Response.new do |r|
         r.Say "#{number}番の音声を再生します。", language: "ja-jp", voice: "woman"
-        r.play Records.find(number).url
+        r.Play Records.find(number).url
         r.Redirect '../menu', method: 'get'
       end.text
     end
