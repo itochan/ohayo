@@ -29,7 +29,6 @@ module Ohayo
         response = Twilio::TwiML::Response.new do |r|
           r.Say "録音します。終わるときはいずれかのキーを押してください。", language: "ja-jp", voice: "woman"
           r.Record maxLength: '10', action: '/call/handle-record', method: 'get'
-          r.Redirect 'menu', method: 'get'
         end
       when '2'
         redirect '/call/play/menu'
@@ -53,6 +52,7 @@ module Ohayo
         r.Say "録音が終わりました。再生します。", language: "ja-jp", voice: "woman"
         r.Play recording_url
         r.Say "ありがとうございました", language: "ja-jp", voice: "woman"
+        r.Redirect 'menu', method: 'get'
       end.text
     end
 
