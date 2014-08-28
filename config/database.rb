@@ -14,20 +14,20 @@
 #   }
 #
 ActiveRecord::Base.configurations[:development] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'ohayo_development.db')
+  :adapter => 'postgresql',
+  :database => 'ohayo_development'
 
 }
 
 ActiveRecord::Base.configurations[:production] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'ohayo_production.db')
+  :adapter => 'postgresql',
+  :database => 'ohayo_production'
 
 }
 
 ActiveRecord::Base.configurations[:test] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'ohayo_test.db')
+  :adapter => 'postgresql',
+  :database => 'ohayo_test'
 
 }
 
