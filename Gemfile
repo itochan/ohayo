@@ -18,6 +18,10 @@ gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
 
+group :development do
+  gem 'sqlite3'
+end
+
 # Test requirements
 
 # Padrino Stable Gem
