@@ -13,6 +13,9 @@
 #     :socket    => '/tmp/mysql.sock'
 #   }
 #
+
+postgres = URI.parse(ENV['DATABASE_URL'] || '')
+
 ActiveRecord::Base.configurations[:development] = {
   :adapter => 'sqlite3',
   :database => Padrino.root('db', 'ohayo_development.db')
@@ -20,9 +23,12 @@ ActiveRecord::Base.configurations[:development] = {
 }
 
 ActiveRecord::Base.configurations[:production] = {
-  :adapter => 'postgresql',
-  :database => 'ohayo'
-
+  :adapter  => 'postgresql',
+  :encoding => 'utf8',
+  :database => postgres.path[1..-1],
+  :username => postgres.user,
+  :password => postgres.password,
+  :host     => postgres.host
 }
 
 ActiveRecord::Base.configurations[:test] = {

@@ -16,7 +16,10 @@ gem 'rake'
 # Component requirements
 gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
 
 group :development do
   gem 'sqlite3'
